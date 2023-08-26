@@ -7,7 +7,8 @@ import { SpinnerIcon } from './SpinnerIcon';
 export default function App() {
   const lastElement = React.useRef(null);
   const { data, hasNext, next, error } = useInfiniteScroll();
-  const last = data[data.length - 1];
+  const last = data.length ? data[data.length - 1] : null;
+  const mainData = data.length ? data.slice(0, data.length - 1) : null;
 
   React.useEffect(() => {
     const callbackFn = (entries: IntersectionObserverEntry[]) => {
@@ -35,7 +36,7 @@ export default function App() {
       <>
         <h2>Todo Title</h2>
         <ul>
-          {data?.map((todo) => (
+          {mainData?.map((todo) => (
             <li key={todo.id}>{todo.title}</li>
           ))}
           {last && (
