@@ -17,6 +17,10 @@ li {
   justify-content: center;
 }
 
+.error {
+  color: salmon;
+}
+
 .spinner {
   width: 48px;
   height: 48px;

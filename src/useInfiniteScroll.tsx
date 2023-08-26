@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/todos';
 
@@ -6,6 +6,7 @@ const useInfiniteScroll = () => {
   const [data, setData] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [hasNext, sethasNext] = React.useState(true);
+  const [error, setError] = useState('');
   const limit = 10;
 
   const fetchData = async () => {
@@ -23,8 +24,8 @@ const useInfiniteScroll = () => {
         sethasNext(hasMore);
       }
     } catch (error) {
-      console.error('Something went wrong!!!');
-      setPage(1);
+      setError('Error occured while Fectching the data ');
+      sethasNext(false);
     }
   };
 
@@ -35,7 +36,8 @@ const useInfiniteScroll = () => {
   const next = () => {
     hasNext && setPage((prevPage) => prevPage + 1);
   };
-  return { data, page, hasNext, next };
+
+  return { data, page, hasNext, next, error };
 };
 
 export default useInfiniteScroll;
