@@ -13,4 +13,4 @@ This project demonstrates how to fetch data from an API and implement infinite s
 - Displays a loading spinner while fetching data.
 - Notifies the user when all data has been loaded.
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/stackblitz-starters-oytgdb)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/infinite-scroll-exp)
